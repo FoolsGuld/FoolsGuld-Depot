@@ -1,2 +1,2 @@
 # FoolsGuld-Depot
-i'm using this to practice programming I'
+I'm just using this repository to practice programmming
