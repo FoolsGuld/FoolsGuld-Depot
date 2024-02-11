@@ -7,10 +7,12 @@ int main(){
     //variables
     double input;
     double output;
+    //output header
     cout << "********************" << endl;
     cout << "CUBE ROOT CALCULATOR" << endl;
     cout << "********************" << endl;
     do{
+        //receive input
         input = 0;
         output = 0;
         cout << "Enter a number:" << endl;
