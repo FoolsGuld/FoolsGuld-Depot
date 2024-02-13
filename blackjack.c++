@@ -11,7 +11,25 @@ int main(){
     int dealerFirstCard = 0;
     char input;
     int drawnCard;
+    int chips = 50;
+    int bet;
     while(true){
+    bet = 0;
+    input = 0;
+    drawnCard = 0;
+    score = 0;
+    opScore = 0;
+    dealerFirstCard = 0;
+    cout << "******************************\n";
+    cout << "You have " << chips << " chips. \n";
+    cout << "How much would you like to bet?\n";
+    while(true) {
+        cin >> bet;
+        if(bet>=0 && bet <= chips){
+            break;
+        }
+    }
+    cout << "You bet " << bet << " chips.\n" ;
     cout << "******************************\n";
     //dealing first 2 cards
     dealerFirstCard = cards[rand() % 12];
@@ -23,8 +41,6 @@ int main(){
         }
     }
     cout << "The dealer's first card is " << dealerFirstCard << ". \n";
-
-    //Hit or stay
 
     while(input != 's'){
         if(score >= 21){
@@ -55,33 +71,30 @@ int main(){
 
     //declare winner
     if(score == 21 && opScore != 21) {
-        cout << "Blackjack! You win! \n";
+        cout << "Blackjack! You win! (+" << bet << " chips.)\n";
+        chips+=bet;
     } else if(score > 21) {
-        cout << "You bust. You lose. \n";
+        cout << "You bust. You lose. (-" << bet << " chips.)\n";
+        chips-=bet;
     } else if(opScore == 21){
-        cout << "The dealer got a blackjack. You lose. \n";
+        cout << "The dealer got a blackjack. You lose. (-" << bet << " chips.)\n";
+        chips-=bet;
     } else if(opScore > 21) {
-        cout << "The dealer busted. You win. \n";
+        cout << "The dealer busted. You win! (+" << bet << " chips.)\n";
+        chips+=bet;
     } else if(score > opScore){
-        cout << "You win. \n";
+        cout << "You win. (+" << bet << " chips.)\n";
+        chips+=bet;
     } else if(score < opScore){
-        cout << "You lose. \n";
+        cout << "You lose. (-" << bet << " chips.)";
+
     } else if(score == opScore){
-        cout << "Push. Tie game. \n";
+        cout << "Push. Tie game. (+0 chips.)\n";
     }
-    cout << "******************************\n";
-/*    cout << "Play again? (y/n) \n";
-    while(input != 'y' || input != 'n'){
-        cin >> input;
-        if(input == 'y' || input == 'n'){
-            break;
-        }
-    }
-    if(input == 'n'){
+    if(chips == 0){
+        cout << "You are out of chips.\n";
         break;
     }
-    */
-    return 0;
-
 }
+    return 0;
 }
