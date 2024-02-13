@@ -25,8 +25,10 @@ int main(){
     cout << "How much would you like to bet?\n";
     while(true) {
         cin >> bet;
-        if(bet>=0 && bet <= chips){
+        if(bet <= chips && bet >= 0){
             break;
+        } else {
+            cout << "Invalid Response. \n";
         }
     }
     cout << "You bet " << bet << " chips.\n" ;
@@ -36,7 +38,7 @@ int main(){
     opScore += dealerFirstCard;
     for(int i = 0; i < 2; i++){
         score += cards[rand() % 12];
-        if(i=1){
+        if(i == 1){
             opScore += cards[rand() % 12];
         }
     }
