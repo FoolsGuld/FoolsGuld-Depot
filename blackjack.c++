@@ -66,7 +66,7 @@ int main(){
     }
         //deal cards for op
         for(int i = 0; i < 2; i++){
-        opScore += cards[rand() % 12];
+            opScore += cards[rand() % 12];
         }
     cout << "Your score is " << score << endl;
     cout << "The dealer's score is " << opScore << endl;
