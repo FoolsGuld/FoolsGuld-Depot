@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <string.h>
 
 using namespace std;
 
@@ -8,6 +9,7 @@ int main(){
     srand(time(0));
     string word = words[rand() % 100];
     int wordLength = word.length();
+    string guessedLetters;
     for(int i=0; i< wordLength; i++){
         if()
         cout << "_ ";
