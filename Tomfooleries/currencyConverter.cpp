@@ -7,22 +7,29 @@ using namespace std;
 int main(){
     double input;
     double output;
-    char user;
+    double user;
 
-
-    while(user != 1 && user != 2){
+    while(true){
         cout << "Do you want to convert USD -> CAD (1) or USD <- CAD (2)?\n";
         cin >> user;
-        cout << "Input is " << user << "\n";
-        if(user == 1 || user == 2){
+        if(user == 1 || user == 2) {
             break;
         }
     }
     if(user == 1){
-        cout << "USD: ";
-        while(input == 0){
-        cin >> input;
+        while(!input > 0){
+            cout << "USD: ";
+            cin >> input;
         }
+        output = input * 1.35;
+        cout << "$" << input << " in CAD is $" << output << ".\n";
+    } else {
+        while(!input > 0){
+            cout << "CAD: ";
+            cin >> input;
+        }
+        output = input / 1.35;
+        cout << "$" << input << " in USD is $" << output << ".\n";
     }
     return 0;
 }
